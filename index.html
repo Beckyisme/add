@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>MakStudio-侧边栏固定</title>
+	<link rel="stylesheet" href="css/style.css">
+	<script src="js/jquery-2.1.1.min.js"></script>
+</head>
+<body>
+	<div class="nav">
+		<p>导航栏</p>
+	</div>
+	<div class="content">
+		<div id="content-left">
+			<ul>
+				<li>MakStudio-1</li>
+				<li>MakStudio-1</li>
+				<li>MakStudio-1</li>
+				<li>MakStudio-1</li>
+				<li>MakStudio-1</li>
+				<li>MakStudio-1</li>
+				<li>MakStudio-1</li>
+				
+			</ul>
+		</div>
+		<div id="content-right">
+			内容区
+		</div>
+	</div>
+	<div class="footer">
+		<p>本网页由MakStudio提供</p>
+	</div>
+	<script>
+	var getWindow = $(window);
+	getWindow.scroll(function(){
+		var scrollHeight = getWindow.scrollTop();
+		var contentHeight = $("#content-right").height() - $("#content-left").height();
+		console.log(contentHeight)
+		if(scrollHeight>80 && scrollHeight<contentHeight+80){
+			$("#content-left").css({
+				position:"absolute",
+				left:"0px",
+				top:scrollHeight-80+"px"
+			})
+		}else if(scrollHeight <= 80){
+			$("#content-left").css({
+				position:"absolute",
+				left:"0px",
+				top:"0px"
+			})
+
+		}
+	})
+	</script>
+</body>
+</html>
